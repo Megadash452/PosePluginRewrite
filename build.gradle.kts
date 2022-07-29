@@ -31,3 +31,20 @@ tasks.withType<KotlinCompile> {
 application {
     mainClass.set("PosePluginRewrite")
 }
+
+tasks.withType<Jar> {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    // Otherwise you'll get a "No main manifest attribute" error
+    manifest {
+        attributes["Main-Class"] = "me.megadash452.posepluginrewrite.PosePluginRewrite"
+    }
+
+    // Add all the dependencies
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
+}

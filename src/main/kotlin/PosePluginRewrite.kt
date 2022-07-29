@@ -1,7 +1,7 @@
 package me.megadash452.posepluginrewrite
 
 import org.bukkit.Bukkit
-import org.bukkit.plugin.java.JavaPlugin as BukkitPlugin
+import org.bukkit.plugin.java.JavaPlugin
 
 // fun main(args: Array<String>) {
 //     println("Hello World!")
@@ -11,7 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin as BukkitPlugin
 //     println("Program arguments: ${args.joinToString()}")
 // }
 
-class PosePluginRewrite : BukkitPlugin() {
+class PosePluginRewrite : JavaPlugin() {
     override fun onEnable() {
         // Plugin startup logic
         println("Plugin start")
