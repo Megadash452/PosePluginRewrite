@@ -15,10 +15,12 @@ class PosePluginRewrite : JavaPlugin() {
     override fun onEnable() {
         // Plugin startup logic
         println("Plugin start")
-        Bukkit.getPluginManager().registerEvents(SneakListener(), this)
+        Bukkit.getPluginManager().registerEvents(CrawlListener(), this)
     }
     override fun onDisable() {
         // Plugin shutdown logic
         println("Plugin stop")
     }
+
+
 }
